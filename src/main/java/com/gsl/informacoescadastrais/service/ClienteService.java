@@ -1,11 +1,10 @@
 package com.gsl.informacoescadastrais.service;
 
-import com.gsl.informacoescadastrais.model.Cliente;
-import org.springframework.stereotype.Service;
+import com.gsl.informacoescadastrais.model.ClienteDTO;
 
 import java.util.List;
 
 public interface ClienteService {
-    Cliente obterCliente(int id);
-    List<Cliente> obterTodosClientes();
+    ClienteDTO obterCliente(int id) throws Exception;
+    List<ClienteDTO> obterTodosClientes();
 }

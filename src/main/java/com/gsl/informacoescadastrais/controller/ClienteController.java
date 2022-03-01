@@ -1,8 +1,7 @@
 package com.gsl.informacoescadastrais.controller;
 
-import com.gsl.informacoescadastrais.model.Cliente;
+import com.gsl.informacoescadastrais.model.ClienteDTO;
 import com.gsl.informacoescadastrais.service.ClienteService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,18 +14,21 @@ import java.util.List;
 @RequestMapping("/cliente")
 public class ClienteController {
 
-    @Autowired
-    private ClienteService clienteService;
+    private final ClienteService clienteService;
+
+    public ClienteController(ClienteService clienteService) {
+        this.clienteService = clienteService;
+    }
 
     @GetMapping("/{id}")
-    public ResponseEntity<String> obterClientePorId(@PathVariable("id") int id){
-        return ResponseEntity.ok("ok");
+    public ResponseEntity<ClienteDTO> obterClientePorId(@PathVariable("id") int id) throws Exception {
+        return ResponseEntity.ok(clienteService.obterCliente(id));
     }
 
     @GetMapping
-    public ResponseEntity<List<Cliente>> obterClientes(){
+    public ResponseEntity<List<ClienteDTO>> obterClientes(){
         var clientes = clienteService.obterTodosClientes();
         return ResponseEntity.ok(clientes);
     }
 
- }
+}

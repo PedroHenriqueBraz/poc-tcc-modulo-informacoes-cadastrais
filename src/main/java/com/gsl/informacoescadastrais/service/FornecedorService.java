@@ -1,11 +1,10 @@
 package com.gsl.informacoescadastrais.service;
 
-import com.gsl.informacoescadastrais.model.Cliente;
-import com.gsl.informacoescadastrais.model.Fornecedor;
+import com.gsl.informacoescadastrais.model.FornecedorDTO;
 
 import java.util.List;
 
 public interface FornecedorService {
-    Fornecedor obterFornecedor(int id);
-    List<Fornecedor> obterTodosFornecedores();
+    FornecedorDTO obterFornecedor(int id) throws Exception;
+    List<FornecedorDTO> obterTodosFornecedores();
 }

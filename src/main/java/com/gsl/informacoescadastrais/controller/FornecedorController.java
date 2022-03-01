@@ -1,8 +1,7 @@
 package com.gsl.informacoescadastrais.controller;
 
-import com.gsl.informacoescadastrais.model.Fornecedor;
+import com.gsl.informacoescadastrais.model.FornecedorDTO;
 import com.gsl.informacoescadastrais.service.FornecedorService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,16 +13,19 @@ import java.util.List;
 @RestController
 @RequestMapping("/fornecedor")
 public class FornecedorController {
-    @Autowired
-    private FornecedorService fornecedorService;
+    private final FornecedorService fornecedorService;
+
+    public FornecedorController(FornecedorService fornecedorService) {
+        this.fornecedorService = fornecedorService;
+    }
 
     @GetMapping("/{id}")
-    public ResponseEntity<String> obterFornecedorPorId(@PathVariable("id") int id){
-        return ResponseEntity.ok("ok");
+    public ResponseEntity<FornecedorDTO> obterFornecedorPorId(@PathVariable("id") int id) throws Exception {
+        return ResponseEntity.ok(fornecedorService.obterFornecedor(id));
     }
 
     @GetMapping
-    public ResponseEntity<List<Fornecedor>> obterFornecedores(){
+    public ResponseEntity<List<FornecedorDTO>> obterFornecedores(){
         return ResponseEntity.ok(fornecedorService.obterTodosFornecedores());
     }
 }
