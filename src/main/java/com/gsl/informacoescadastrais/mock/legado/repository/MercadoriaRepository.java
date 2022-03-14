@@ -1,9 +1,10 @@
 package com.gsl.informacoescadastrais.mock.legado.repository;
 
-import com.gsl.informacoescadastrais.mock.legado.Cliente;
+import com.gsl.informacoescadastrais.mock.legado.Mercadoria;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ClienteRepository extends JpaRepository<Cliente, Long> {
+public interface MercadoriaRepository extends JpaRepository<Mercadoria, Long> {
+    Mercadoria findByCodigo(int codigo);
 }
