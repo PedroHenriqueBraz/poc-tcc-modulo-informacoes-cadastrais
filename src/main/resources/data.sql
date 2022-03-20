@@ -15,4 +15,4 @@ insert into mercadoria(mercadoria_id, nome, codigo) values (1, 'Whey Protein', '
 insert into mercadoria(mercadoria_id, nome, codigo) values (2, 'Arroz', '117898')
 insert into mercadoria(mercadoria_id, nome, codigo) values (3, 'Caderno', '12411')
 insert into mercadoria(mercadoria_id, nome, codigo) values (4, 'Livro', '13420')
-insert into mercadoria(mercadoria_id, nome, codigo) values (4, 'Refrigerante', '98586')
+insert into mercadoria(mercadoria_id, nome, codigo) values (5, 'Refrigerante', '98586')
